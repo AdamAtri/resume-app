@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mocha Test Runner</title>
+  <link rel="stylesheet" href="mocha/mocha.css">
+</head>
+<body>
+<div id="mocha"></div>
+<script src="mocha/mocha.js"></script>
+<script src="chai/chai.js"></script>
+<script src="sinon/pkg/sinon.js"></script>
+
+<script>
+  // Only necessary for PhantomJS 1.x
+  Function.prototype.bind = Function.prototype.bind || function(to){
+    // Make an array of our arguments, starting from second argument
+    var partial = Array.prototype.splice.call(arguments, 1),
+    // We'll need the original function.
+    fn = this;
+    var bound = function (){
+      // Join the already applied arguments to the now called ones (after converting to an array again).
+      var args = partial.concat(Array.prototype.splice.call(arguments, 0));
+      // If not being called as a constructor
+      if (!(this instanceof bound)){
+        // return the result of the function called bound to target and partially applied.
+        return fn.apply(to, args);
+      }
+      // If being called as a constructor, apply the function bound to self.
+      fn.apply(this, args);
+    }
+    // Attach the prototype of the function to our newly created function.
+    bound.prototype = fn.prototype;
+    return bound;
+  };
+</script>
+
+<!-- Add Srcs. -->
+<script src="tests.bundle.js"></script>
+
+
+<script>
+  // mocha.ui('bdd');
+  mocha.setup('bdd');
+  mocha.reporter('html');
+  // use chais-implementation of "expect"
+  expect = chai.expect;
+  var assert = chai.assert;
+</script>
+
+
+<!-- Specifications -->
+<!-- <script src="./unit/game-ctrl-test.js"></script>
+<script src="./unit/game-model-test.js"></script> -->
+
+<script>
+  window.addEventListener('load', function () {
+    if (window.mochaPhantomJS) {
+      mochaPhantomJS.run();
+    } else {
+      mocha.run();
+    }
+  });
+</script>
+</body>
+</html>

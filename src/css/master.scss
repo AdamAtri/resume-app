@@ -1,0 +1,17 @@
+body {
+  font-family: monospace;
+  font-size: 20px;
+  background-color: #444;
+  color: #DEE;
+}
+#temp-header {
+  text-align: center;
+}
+#temp-img {
+  display: block;
+  width: 60%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 5%;
+  filter: drop-shadow(10px 10px 20px #222);
+}
