@@ -25,7 +25,7 @@ const BASE = {
         exclude: [ 'node_modules' ]
       },
       { // load files
-        test: /\.(png|svg|jpg|gif|woff2|woff|ttf|eot)$/,
+        test: /\.(png|svg|jpg|jpeg|gif|woff2|woff|ttf|eot)$/,
         exclude: /node_modules/,
         use: [{
           loader:"file-loader",
