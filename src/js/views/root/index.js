@@ -1,14 +1,22 @@
 
 module.exports = (function() {
 
+  require('./_style.scss');
+  const ReasonsView = require('../reasons-view/index');
+
   const RootView = Mn.View.extend({
-    template: (data) => (`
-      <h1 id="temp-header">Hello AwesomeSauce</h1>
-      <img id="temp-img" src="${data.img}"></img>
-    `),
-    templateContext: () => ({
-      img: require('../../../assets/cash.jpg')
-    })
+    template: require('./template'),
+    id: 'root-container',
+    className: 'container',
+    regions: {
+      reasons: '#reasons-container',
+      moveon: '#moveon-container',
+      dev: '#dev-info'
+    },
+
+    onRender() {
+      this.showChildView('reasons', new ReasonsView());
+    }
   });
 
   return RootView;
