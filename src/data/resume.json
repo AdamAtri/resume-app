@@ -1,0 +1,152 @@
+{
+  "name": {
+    "first": "Kailash",
+    "middle": "Adam",
+    "last": "Atri"
+  },
+
+  "address": {
+    "street1": "1210 Gatehouse Dr.",
+    "street2": "",
+    "city": "Cary",
+    "state": "NC",
+    "zip": 27511
+  },
+
+  "contact": {
+    "mobile": "919.623.8442",
+    "email": "adam@atricoware.com"
+  },
+
+  "website": "atricoware.com",
+
+  "social": {
+    "github": "www.github.com/AdamAtri",
+    "linkedin": "www.linkedin.com/in/kailash-adam-atri"
+  },
+
+  "education": [
+    {
+      "school": "Wake Technical Community College",
+      "start": "Fall 2011",
+      "end": "Summer 2014",
+      "degree": "AS Computer Programming",
+      "gpa": "3.7"
+    },
+    {
+      "school": "Stonybrook University (SUNY)",
+      "start": "Fall 2002",
+      "end": "Fall 2004",
+      "degree": "BA Philosophy / History",
+      "gpa": "3.4"
+    },
+    {
+      "school": "Kingsborough Community College (CUNY)",
+      "start": "Fall 2000",
+      "end": "Spring 2002",
+      "degree": "AA Journalism",
+      "gpa": "3.6"
+    },
+  ],
+
+  "certifications": [
+    {
+      "name": "COMP/TIA A+ Certifcation",
+      "license": "Comp/TIA, License COMP001005016753"
+    },
+    {
+      "name": "COMP/TIA Network+ Certifcation",
+      "license": "Comp/TIA, License COMP001005016753"
+    },
+    {
+      "name": "Certified Android Programmer",
+      "license": "Wake Tech"
+    }
+  ],
+
+  "employment": [
+    {
+      "name": "AtricoWare",
+      "title": "Fullstack Developer",
+      "start": "1 FEB 2018",
+      "end": "",
+      "location": "Cary, NC",
+      "description": "Custom applications development",
+      "duties": [
+        "ShooterBingo: Created a game tracking solution for the creators of a new casino table game - ShooterBingo.",
+        "Currently developing a mobile version of ShooterBingo that will run in tandom with live table games.",
+        "Systems Analysis and Design.",
+        "Live demonstrations.",
+        "Customer Support."
+      ],
+      "technologies": [ "ES6", "NodeJS", "ExpressJS", "BackboneJS", "Marionette", "MongoDB", "Webpack", "Yarn", "Cordova", "Test Driven Development with Mocha, Chai, and Sinon", "PassportJS Authentication", "Google Play Store", "Windows App Store", "Amazon Web Services", "more..." ]
+    },
+    {
+      "name": "VoiceThread, Inc",
+      "title": "Software/Frontend Developer",
+      "start": "15 OCT 2014",
+      "end": "31 JAN 2018",
+      "location": "Durham, NC",
+      "description": "VoiceThread is a web-based application that allows you to place collections of media like images, videos, documents, and presentations at the center of an asynchronous conversation.",
+      "duties": [
+        "Developed an automated integration-testing application using Python, Selenium, and OpenCV.",
+        "Maintained and developed features for Flash-based player application.",
+        "Maintained an original and developed the foundation for the new mobile application.",
+        "Responsible for building platform specific versions of the mobile app, and deploying to Google Play and Apple Store."
+        "Assisted in developing a transpiler that converted ActionScript code into Javascript/HTML5 code.",
+      ],
+      "technologies": ["ActionScript", "Javascript (including NodeJS, NPM, BackboneJS, Marionette, Angular 1.0, Cordova, Ionic)", "Python", "Selenium", "OpenCV", "Sikuli", "PHP", "MySQL", "Git", "Java", "Google APIs", "Google Play Store", "Apple Store", "Jenkins", "Bash", "Ubuntu Server", "AWS"]
+    },
+    {
+      "name": "PowerSolve",
+      "title": "Software Developer",
+      "start": "1 JAN 2013",
+      "end": "20 JUN 2014",
+      "location": "Garner, NC",
+      "description": "PowerSolve is an assets management solution for utility companies that provides coverage for the entire lifecycle of the utility's metering equipment. ",
+      "duties": [
+        "Developed the Reporting and the Random Sampling (ANSI standard z1.9) modules and the mobile field application for PowerTrack.NET asset management software using WCF services, LINQ, and .NET Compact Framework in VB.NET. Entire project has been successfully completed and installed at Gainesville Regional Utilities in Gainesville, FL.",
+        "Systems Analysis and Design: involved in redesign of PowerTrack.NET which required extensive planning that incorporated multiple iterations of Requirements, Data, and Object modeling for End-User approval.",
+        "Initiated weekly developer meetings to perform peer review of code, discuss unresolved issues from the previous week and plans for the current week, to reallocate resources (including programmers) as necessary, and to discuss emerging trends in the industry that could lead to future development, anticipating customer requests."
+      ],
+      "technologies": [".NET Framework 3.5 - 4.0","VB.NET", "C#.NET", "Visual Studio", "Windows Server 2012", "MS-SQL", "Delphi", "Android SDK", "BitLocker"]
+    },
+    {
+      "name": "SMD Software (Sitelink)",
+      "title": "Technical Support Specialist",
+      "start": "12 OCT 2008",
+      "end": "15 NOV 2012",
+      "location": "Cary NC",
+      "description": "Sitelink is a self-storage management software suite.",
+      "duties": [
+        "Provided technical support to users of SiteLink software.",
+        "Performed pre-sales demonstrations of the product to prospective clients to promote sales.",
+        "Software Testing: provided pre-release end-user testing.",
+        "Process Improvement: created central repository for test findings and organized a group of testers, each concentrating on specific areas of product testing.",
+        "Inquisitive: Exposed to SQL for the first time. Began using sql to provide clearer examples of system bugs. Initiated my career as a programmer.",
+        "Custom Reporting: with newly gained SQL skills, began providing customers with custom reports and report templates that were not part of the original program."
+      ],
+      "technologies": ["Windows XP / 7 (including registry editing)", "MS-SQL"]
+    },
+    {
+      "name": "Ajilon",
+      "title": "Help Desk Team Lead (GlaxoSmithKline)",
+      "start": "10 JUN 2006",
+      "end": "20 SEP 2008",
+      "location": "Durham NC",
+      "description": "",
+      "duties": [
+        "Supervised a team of approx. 20 Level 1 analysts who supported 10000 pharmaceutical sales reps with a range of issues including: Hardware repair, Networking and VPNs, troubleshooting and use of pre-packaged and proprietary software.",
+        "Liaised with GSK internal IT for process improvement and system updates.",
+        "Developed white paper to document process.",
+        "Fast riser: was promoted to Team Lead after 3 months as an analyst.",
+        "Achiever: winner of Excellence in Service award multiple times.",
+        "Team builder: planned and executed multiple team building exercises including Office Olympics."
+      ],
+      "technologies": [
+        "MS Office", "Windows XP / 7",
+      ]
+    },
+  ]
+
+}
