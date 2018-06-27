@@ -24,6 +24,7 @@ module.exports = (function(){
       "_": false,
       "Bb": false, // Backbone
       "Mn": false, // Marionette
+      "IS_PROD": false, // environment boolean 
     }
   }
 })();
