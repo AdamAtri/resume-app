@@ -1,6 +1,7 @@
 /* ResumeView style */
 
 @import '../../../css/mixins';
+$assets: '../../../assets/';
 
 #my-resume {
   background: white;
@@ -35,11 +36,12 @@
     letter-spacing: .05em;
     line-height: 4;
     text-transform: uppercase;
-    @include centerize();
 
     @media screen and (max-width: 500px) {
       font-size: 1.9em;
     }
+
+    @include centerize();
   }
   .head-subtitle {
     position: absolute;
@@ -70,6 +72,69 @@
     }
     @media print {
       transform: translate(-195%, -140%);
+    }
+  }
+  .media-nav {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+
+    &.fixed-mobile {
+      position: fixed;
+      top: 0;
+      background: #333;
+    }
+    &.fixed {
+      position: fixed;
+      top: 0;
+      background: #333;
+      min-height: 150px;
+    }
+
+    @media screen and (max-width: 500px) {
+      left: 0;
+      flex-direction: row;
+      height: 50px;
+      width: 100%;
+    }
+
+    .media-btn {
+      cursor: pointer;
+      box-sizing: border-box;
+      width: 40px;
+      height: 40px;
+      margin: .25em;
+      opacity: 0.7;
+      &:hover {
+        opacity: 1;
+      }
+    }
+    #dl-btn {
+      background: no-repeat center / 105% url($assets + 'download-button.svg'), #DDD;
+    }
+
+    .social {
+      width: 50px;
+      display: flex;
+      flex-direction: column;
+      @media screen and (max-width: 500px) {
+        flex-direction: row;
+        justify-content: flex-end;
+        width: calc(100px + .5em);
+        right: 0;
+      }
+
+      #git-btn {
+        background: no-repeat center / 105% url($assets + 'github-logo.svg'), #DDD;
+      }
+      #linked-btn {
+        background: no-repeat center / 105% url($assets + 'linkedin-logo.svg'), #DDD;
+      }
     }
   }
 }
