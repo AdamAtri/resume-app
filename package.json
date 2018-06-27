@@ -11,7 +11,7 @@
     "pretest": "NODE_ENV=development webpack",
     "test": "mocha",
     "wptest": "NODE_ENV=development webpack-dev-server --env.type=testing",
-    "wpview": "NODE_ENV=development webpack --env.type=view"
+    "wpview": "NODE_ENV=development webpack-dev-server --env.type=view"
   },
   "devDependencies": {
     "chai": "^4.1.2",
