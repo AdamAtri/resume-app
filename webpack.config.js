@@ -146,12 +146,8 @@ const VIEW = function({filename, viewargs}) {
         ]
       }),
       new HTMLWebpackMountpointPlugin({
-        mountPoints: [
-          {
-            id: 'app-mount',
-            tagName: 'section'
-          },
-        ],
+        mountPoints: [ 'app-mount' ],
+        tagName: 'section'
       })
     ]
   };
@@ -160,7 +156,7 @@ const VIEW = function({filename, viewargs}) {
 module.exports = env => {
   let BUILD = merge({mode: node_env}, BASE);
   if (env && env.type === 'view') {
-    return merge(BUILD, VIEW(env))
+    return merge(BUILD, DEV, VIEW(env))
   }
   if (env && env.type === 'testing') {
     let x = merge(BUILD, DEV);
