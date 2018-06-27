@@ -1,0 +1,113 @@
+/* ResumeView style */
+
+@import '../../../css/mixins';
+
+#my-resume {
+  background: white;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.res-header {
+  position: relative;
+  background: rgba(0, 0, 0, 0.8);
+  height: 70vh;
+  @media screen and (max-width: 900px) {
+    height: 50vh;
+  }
+
+  & > div { margin: 0; padding: 0;}
+
+  .head-title {
+    display: inline-block;
+    height: 5em;
+    box-sizing: border-box;
+    font-family: UrbanTribe;
+    font-size: 3em;
+    letter-spacing: .05em;
+    line-height: 4;
+    text-transform: uppercase;
+    @include centerize();
+  }
+  .head-subtitle {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.25em;
+    letter-spacing: .05em;
+  }
+  .dev-name {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-200%, -50%);
+    font-size: 1.5em;
+    font-weight: 400;
+  }
+}
+
+.main-section {
+  display: flex;
+  box-sizing: border-box;
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+  }
+
+  .section-title {
+    color: #333;
+    font-weight: 400;
+    font-size: 1.25em;
+    margin: 1em 1em 0;
+    flex: 1;
+  }
+  .section-details {
+    flex:3;
+    padding-right: 1em;
+  }
+}
+
+.employer {
+  color: #333;
+  display: flex;
+  box-sizing: border-box;
+  @media screen and (max-width: 900px) {
+    flex-direction: column;
+  }
+  .emp-description {
+    flex: 2;
+
+    .emp-title {
+      text-transform: uppercase;
+      font-family: UrbanTribe;
+      margin-bottom: 2px;
+    }
+    & > a, .emp-name {
+      color: black;
+      font-weight: bold;
+    }
+    .emp-details {
+      font-weight: 400;
+      letter-spacing: .03em;
+
+      .emp-duty {
+        margin-bottom: .5em;
+      }
+    }
+  }
+  .emp-tech {
+    flex: 1;
+    font-size: .8em;
+    @media screen and (min-width: 901px) {
+      padding: 3em .5em 0;
+    }
+
+    .tech-stack {
+      font-weight: bold;
+      font-size: 1.5em;
+    }
+    .technologies {
+      padding-left: 3px;
+    }
+  }
+}
