@@ -8,6 +8,7 @@ module.exports = (function() {
 
   const ResumeHeader = require('./header');
   const EmploymentView = require('./employment');
+  const EducationView = require('./education');
 
   const ResumeView = Mn.View.extend({
     template: require('./template'),
@@ -17,12 +18,12 @@ module.exports = (function() {
         el: '#res-header',
         replaceElement: true
       },
-      main: {
-        el: '#res-main',
+      work: {
+        el: '#res-work',
         replaceElement: true
       },
-      aside: {
-        el: '#res-aside',
+      ed: {
+        el: '#res-education',
         replaceElement: true
       },
       footer: {
@@ -33,7 +34,8 @@ module.exports = (function() {
 
     onRender() {
       this.showChildView('header', new ResumeHeader());
-      this.showChildView('main', new EmploymentView({employers: data.employment}));
+      this.showChildView('work', new EmploymentView({employers: data.employment}));
+      this.showChildView('ed', new EducationView({education: data.education}));
     }
 
   });

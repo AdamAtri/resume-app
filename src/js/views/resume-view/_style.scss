@@ -71,6 +71,7 @@
 .main-section {
   display: flex;
   box-sizing: border-box;
+  margin-bottom: 1em;
   @media screen and (max-width: 500px) {
     flex-direction: column;
   }
@@ -149,5 +150,23 @@
       font-size: 1.2em;
       @include centerMargin;
     }
+  }
+}
+
+.education-details {
+  & > hr {visibility: hidden;}
+}
+.educator {
+  color: #333;
+  box-sizing: border-box;
+
+  .ed-degree {
+    text-transform: uppercase;
+    font-family: UrbanTribe;
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
+  .ed-details {
+    font-weight: 400;
   }
 }
