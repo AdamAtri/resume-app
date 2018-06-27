@@ -3,6 +3,7 @@ module.exports = (function() {
 
   require('./_style.scss');
   const ReasonsView = require('../reasons-view/index');
+  const MoveOnView = require('../moveon/index');
 
   const RootView = Mn.View.extend({
     template: require('./template'),
@@ -16,6 +17,11 @@ module.exports = (function() {
 
     onRender() {
       this.showChildView('reasons', new ReasonsView());
+      this.moveon = new MoveOnView();
+      this.showChildView('moveon', this.moveon);
+      if (!IS_PROD) {
+        window.moveon = this.moveon;
+      }
     }
   });
 
