@@ -71,7 +71,7 @@
 .main-section {
   display: flex;
   box-sizing: border-box;
-  margin-bottom: 1em;
+  margin-bottom: 2em;
   @media screen and (max-width: 500px) {
     flex-direction: column;
   }
@@ -83,7 +83,10 @@
     margin: 1em 1em 0;
     flex: 1;
     @media screen and (max-width: 500px) {
-      margin: 1em .25em 0;
+      margin: 1em .5em 0;
+    }
+    @media screen and (min-width: 501px) {
+      margin: 1em 2em 0;
     }
   }
   .section-details {
@@ -114,6 +117,9 @@
 
   .emp-description {
     flex: 2;
+    @media screen and (min-width: 901px) {
+      margin-right: .5em;
+    }
 
     .emp-title {
       text-transform: uppercase;
@@ -169,4 +175,11 @@
   .ed-details {
     font-weight: 400;
   }
+}
+
+#res-footer {
+  min-height: 10em;
+  background: #BBB;
+  color: #222;
+  font-size: .67em;
 }
