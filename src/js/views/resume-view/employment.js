@@ -12,6 +12,7 @@ module.exports = (function() {
     let emps = data.employers.map(emp => {
       let duties = emp.duties.map(d => `<li class="emp-duty">${d}</li>`);
       return (`
+        <hr>
         <div class="employer">
           <div class="emp-description">
             <h6 class="emp-title">${emp.title}</h6>
@@ -26,7 +27,7 @@ module.exports = (function() {
           </div>
           <div class="emp-tech">
             <span class="tech-stack">Tech Stack:</span><br>
-            <span class="technologies">${emp.technologies.join(', ')}</span>
+            <div class="technologies">${emp.technologies.join(', ')}</div>
           </div>
         </div>
       `);
