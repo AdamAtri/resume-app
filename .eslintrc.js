@@ -24,7 +24,9 @@ module.exports = (function(){
       "_": false,
       "Bb": false, // Backbone
       "Mn": false, // Marionette
-      "IS_PROD": false, // environment boolean 
+      "IS_PROD": false, // environment boolean
+      "TESTVIEW": false, // view-testing
+      "VIEWARGS": false, // view-testing
     }
   }
 })();
