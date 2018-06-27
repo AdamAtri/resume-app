@@ -79,7 +79,7 @@
         "Live demonstrations.",
         "Customer Support."
       ],
-      "technologies": [ "ES6", "NodeJS", "ExpressJS", "BackboneJS", "Marionette", "MongoDB", "Webpack", "Yarn", "Cordova", "Test Driven Development with Mocha, Chai, and Sinon", "PassportJS Authentication", "Google Play Store", "Windows App Store", "Amazon Web Services", "more..." ]
+      "technologies": [ "ES6", "NodeJS", "ExpressJS", "BackboneJS", "Marionette", "Sass", "MongoDB", "Webpack", "Yarn", "Cordova", "Test Driven Development with Mocha, Chai, and Sinon", "PassportJS Authentication", "Google Play Store", "Windows App Store", "Amazon Web Services", "more..." ]
     },
     {
       "name": "VoiceThread, Inc",
@@ -95,7 +95,7 @@
         "Responsible for building platform specific versions of the mobile app, and deploying to Google Play and Apple Store."
         "Assisted in developing a transpiler that converted ActionScript code into Javascript/HTML5 code.",
       ],
-      "technologies": ["ActionScript", "Javascript (including NodeJS, NPM, BackboneJS, Marionette, Angular 1.0, Cordova, Ionic)", "Python", "Selenium", "OpenCV", "Sikuli", "PHP", "MySQL", "Git", "Java", "Google APIs", "Google Play Store", "Apple Store", "Jenkins", "Bash", "Ubuntu Server", "AWS"]
+      "technologies": ["ActionScript", "Javascript (including NodeJS, NPM, BackboneJS, Marionette, Angular 1.0, Cordova, Ionic, Gulp, Grunt)", "Python", "Selenium", "OpenCV", "Sikuli", "PHP", "MySQL", "Git", "Java", "Google APIs", "Google Play Store", "Apple Store", "Jenkins", "Bash", "Ubuntu Server", "AWS"]
     },
     {
       "name": "PowerSolve",
