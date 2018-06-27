@@ -28,23 +28,26 @@
   "education": [
     {
       "school": "Wake Technical Community College",
+      "location": "Raleigh, NC",
       "start": "Fall 2011",
       "end": "Summer 2014",
-      "degree": "AS Computer Programming",
+      "degree": "Associate of Science Computer Programming",
       "gpa": "3.7"
     },
     {
       "school": "Stonybrook University (SUNY)",
+      "location": "Stonybrook, NY",
       "start": "Fall 2002",
       "end": "Fall 2004",
-      "degree": "BA Philosophy / History",
+      "degree": "Bachelor of Arts Philosophy / History",
       "gpa": "3.4"
     },
     {
       "school": "Kingsborough Community College (CUNY)",
+      "location": "Brooklyn, NY",
       "start": "Fall 2000",
       "end": "Spring 2002",
-      "degree": "AA Journalism",
+      "degree": "Associate of Arts Journalism",
       "gpa": "3.6"
     }
   ],
