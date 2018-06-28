@@ -267,4 +267,8 @@ $assets: '../../../assets/';
   background: #BBB;
   color: #222;
   font-size: .67em;
+
+  @media print {
+    visibility: hidden;
+  }
 }

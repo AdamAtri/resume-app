@@ -52,7 +52,7 @@ module.exports = (function() {
         }
       }
       else {
-        let newHeight = this.getRect().height - (window.pageYOffset + 10);
+        let newHeight = Math.max(this.getRect().height - (window.pageYOffset + 10), 150);
         window.requestAnimationFrame(() => { this.ui.nav.css({height: newHeight+'px'}); });
       }
     },
