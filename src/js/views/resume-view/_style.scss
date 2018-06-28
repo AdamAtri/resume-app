@@ -262,10 +262,16 @@ $assets: '../../../assets/';
 }
 
 #res-footer {
+  width: 100%;
   min-height: 10em;
   background: #BBB;
   color: #222;
   font-size: .67em;
+
+  &.fixed {
+    position: fixed;
+    bottom: -10px;
+  }
 
   @media print {
     visibility: hidden;

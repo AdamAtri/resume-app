@@ -33,7 +33,12 @@ module.exports = (function() {
     },
 
     onRender() {
-      this.showChildView('header', new ResumeHeader(data.social));
+      this.showChildView('header', new ResumeHeader({
+        devName: data.name,
+        title: data.title,
+        subtitle: data.subtitle,
+        social: data.social,
+      }));
       this.showChildView('work', new EmploymentView({employers: data.employment}));
       this.showChildView('ed', new EducationView({education: data.education}));
     }

@@ -3,18 +3,21 @@
 
 module.exports = (function() {
 
-  const template = (data) => (`
-    <div class="dev-name">K. Adam Atri</div>
-    <div class="head-title"> developer.</div>
-    <div class="head-subtitle">Here's what I've been up to &mldr;</div>
-    <div class="media-nav">
-      <a href="#" id="dl-btn" class="media-btn" role="button"></a>
-      <div class="social">
-        <a href="${data.github}" target="_blank" id="git-btn" class="media-btn" role="button"></a>
-        <a href="${data.linkedin}" target="_blank" id="linked-btn" class="media-btn" role="button"></a>
+  const template = (data) => {
+    let devName = `${data.devName.first} ${data.devName.middle} ${data.devName.last}`;
+    return (`
+      <div class="dev-name">${devName}</div>
+      <div class="head-title">${data.title}</div>
+      <div class="head-subtitle">${data.subtitle}</div>
+      <div class="media-nav">
+        <a href="#" id="dl-btn" class="media-btn" role="button"></a>
+        <div class="social">
+          <a href="${data.github}" target="_blank" id="git-btn" class="media-btn" role="button"></a>
+          <a href="${data.linkedin}" target="_blank" id="linked-btn" class="media-btn" role="button"></a>
+        </div>
       </div>
-    </div>
-  `);
+    `);
+  };
 
   const ResumeHeader = Mn.View.extend({
     template: template,
