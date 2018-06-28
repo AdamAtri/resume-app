@@ -5,6 +5,7 @@ module.exports = (function() {
 
   require('./_style.scss');
   const data = require('../../../data/resume.json');
+  const resumeFile = require('../../../assets/AdamAtri_Resume.pdf');
 
   const ResumeHeader = require('./header');
   const EmploymentView = require('./employment');
@@ -38,6 +39,8 @@ module.exports = (function() {
         title: data.title,
         subtitle: data.subtitle,
         social: data.social,
+        contact: data.contact,
+        resume: resumeFile
       }));
       this.showChildView('work', new EmploymentView({employers: data.employment}));
       this.showChildView('ed', new EducationView({education: data.education}));

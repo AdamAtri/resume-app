@@ -23,6 +23,7 @@ $assets: '../../../assets/';
   }
   @media print {
     height: 25vh;
+    color: #444;
   }
 
   & > div { margin: 0; padding: 0;}
@@ -55,6 +56,9 @@ $assets: '../../../assets/';
     @media screen and (max-width: 500px) {
       width: 90%;
       font-size: 1em;
+    }
+    @media print {
+      visibility: hidden;
     }
   }
   .dev-name {
@@ -147,6 +151,24 @@ $assets: '../../../assets/';
       #linked-btn {
         background: no-repeat center / 105% url($assets + 'linkedin-logo.svg'), #DDD;
       }
+    }
+  }
+
+  .contact-info {
+    display: flex;
+    justify-content: space-between;
+    width: 72%;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-51%, -50%);
+    font-size: .8em;
+    font-weight: 600;
+    letter-spacing: .05em;
+    visibility: hidden;
+
+    @media print {
+      visibility: visible;
     }
   }
 }
