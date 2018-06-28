@@ -11,10 +11,12 @@
     "pretest": "NODE_ENV=development webpack",
     "test": "mocha",
     "wptest": "NODE_ENV=development webpack-dev-server --env.type=testing",
-    "wpview": "NODE_ENV=development webpack-dev-server --env.type=view"
+    "wpview": "NODE_ENV=development webpack-dev-server --env.type=view",
+    "wpview:prod": "NODE_ENV=production webpack --env.type=view"
   },
   "devDependencies": {
     "chai": "^4.1.2",
+    "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^0.28.11",
     "eslint": "^4.19.1",
     "eslint-loader": "^2.0.0",
@@ -27,6 +29,7 @@
     "sass-loader": "^7.0.1",
     "sinon": "^4.5.0",
     "style-loader": "^0.21.0",
+    "uglifyjs-webpack-plugin": "^1.2.7",
     "webpack": "^4.6.0",
     "webpack-cli": "^2.0.15",
     "webpack-dev-server": "^3.1.3",
