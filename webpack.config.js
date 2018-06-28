@@ -25,11 +25,12 @@ const BASE = {
         exclude: [ 'node_modules' ]
       },
       { // load files
-        test: /\.(png|svg|jpg|jpeg|gif|woff2|woff|ttf|eot)$/,
+        test: /\.(png|svg|jpg|jpeg|gif|woff2|woff|ttf|eot|pdf)$/,
         exclude: /node_modules/,
         use: [{
           loader:"file-loader",
           options: {
+            name: '[name].[ext]',
             includePaths: [join(__dirname, 'src', 'assets')]
           }
         }]
