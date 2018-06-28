@@ -1,4 +1,3 @@
-require('./css/view-test.scss');
 require('./css/master.scss');
 window.$ = $;
 
@@ -7,8 +6,11 @@ const App = Mn.Application.extend({
   region: '#app-mount',
   onStart() {
     let args = VIEWARGS;
-    let view = window['testview'] = new VIEW(args);
-    window['viewargs'] = args;
+    let view = new VIEW(args);
+    if (! IS_PROD) {
+      window['viewargs'] = args;
+      window['testview'] = view;
+    }
     this.showView(view);
   }
 });
