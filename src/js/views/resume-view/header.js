@@ -27,29 +27,46 @@ module.exports = (function() {
     tagName: 'header',
     className: 'res-header',
 
-    onAttach() {
-      function getRect() {
-        return $('header.res-header')[0].getBoundingClientRect();
-      }
-      let isPhone = getRect().width <= 500;
-      if (! isPhone) {
-        this.ui.nav.addClass('fixed');
-        this.ui.nav.css({height: getRect().height - 10});
-      }
+    initialize() {
+      this.getRect = () => { return $('header.res-header')[0].getBoundingClientRect(); };
+      this.isPhone = () => { return this.getRect().width <= 500; };
+    },
 
-      $(window).scroll(() => {
-        if (isPhone) {
-          if (window.pageYOffset >= getRect().height - 50) {
-            this.ui.nav.addClass('fixed-mobile');
-          }
-          else {
-            this.ui.nav.removeClass('fixed-mobile');
-          }
+    onAttach() {
+      if (! this.isPhone()) {
+        this.ui.nav.addClass('fixed');
+        this.ui.nav.css({height: this.getRect().height - 10});
+      }
+      window.addEventListener('scroll', this.onScroll.bind(this), false);
+      window.addEventListener('resize', this.onResize.bind(this), false);
+    },
+
+    onScroll() {
+      if (this.isPhone()) {
+        this.ui.nav.removeClass('.fixed');
+        if(window.pageYOffset >= this.getRect().height - 50) {
+          this.ui.nav.addClass('fixed-mobile');
         }
         else {
-          window.requestAnimationFrame(() => this.ui.nav.css({height: (getRect().height - (window.pageYOffset + 10)) + 'px'}));
+          this.ui.nav.removeClass('fixed-mobile');
         }
-      });
+      }
+      else {
+        let newHeight = this.getRect().height - (window.pageYOffset + 10);
+        window.requestAnimationFrame(() => { this.ui.nav.css({height: newHeight+'px'}); });
+      }
+    },
+
+    onResize() {
+      if ( this.isPhone() ) {
+        this.ui.nav.removeClass('fixed');
+        this.ui.nav.css({height: '50px'});
+      }
+      else {
+        this.ui.nav.addClass('fixed');
+        let newHeight = Math.max(this.getRect().height - (window.pageYOffset + 10), 150);
+        window.requestAnimationFrame(() => { this.ui.nav.css({height: newHeight+'px'}); });
+      }
     }
   });
 
