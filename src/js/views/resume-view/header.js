@@ -12,8 +12,8 @@ module.exports = (function() {
       <div class="media-nav">
         <a href="${data.resume}" download id="dl-btn" class="media-btn" role="button"></a>
         <div class="social">
-          <a href="${data.github}" target="_blank" id="git-btn" class="media-btn" role="button"></a>
-          <a href="${data.linkedin}" target="_blank" id="linked-btn" class="media-btn" role="button"></a>
+          <a href="${data.social.github}" target="_blank" id="git-btn" class="media-btn" role="button"></a>
+          <a href="${data.social.linkedin}" target="_blank" id="linked-btn" class="media-btn" role="button"></a>
         </div>
       </div>
       <div class="contact-info">
