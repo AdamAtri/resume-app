@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
-const { join } = require('path');
+const { join, resolve } = require('path');
 
 const node_env = process.env.NODE_ENV;
 const businessConsts = require('./business/constants.js');
@@ -9,7 +9,8 @@ const
   HTMLWebpackPlugin = require('html-webpack-plugin'),
   HTMLWebpackMountpointPlugin = require('html-webpack-mountpoint-plugin'),
   ExtractTextPlugin = require('extract-text-webpack-plugin'),
-  UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+  UglifyJSPlugin = require('uglifyjs-webpack-plugin'),
+  CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const extractSass = new ExtractTextPlugin({
   filename: '[name].css',
@@ -162,23 +163,28 @@ const VIEW = function({filename, viewargs, title}) {
 
 const PROD = {
   plugins: [
+    new CleanWebpackPlugin(['public'], {root: resolve(__dirname), verbose:true}),
     new UglifyJSPlugin({
       test: /\.js$/,
       exclude: [/node_modules/],
-    })
+    }),
   ]
 };
 
 module.exports = env => {
   let BUILD = merge({mode: node_env}, BASE);
+  let production = node_env === 'production';
   if (env && env.type === 'view') {
-    if (node_env === 'production')
-      return merge(BUILD, PROD, VIEW(env));
+    if (production)
+      return merge(PROD, BUILD, VIEW(env));
     return merge(BUILD, DEV, VIEW(env))
   }
   if (env && env.type === 'testing') {
     let x = merge(BUILD, DEV);
     return merge([x, TEST]);
+  }
+  if (production) {
+    return merge(PROD, BUILD, COMMON);
   }
   return merge(BUILD, COMMON, DEV);
 };
