@@ -78,6 +78,7 @@ module.exports = (function() {
       else {
         // on devices larger than phones, the media-nav is always fixed
         this.ui.nav.addClass('fixed');
+        this.ui.nav.removeClass('fixed-mobile');
         let newHeight = Math.max(this.getRect().height - (window.pageYOffset + 10), 150);
         window.requestAnimationFrame(() => { this.ui.nav.css({height: newHeight+'px'}); });
       }
