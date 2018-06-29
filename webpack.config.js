@@ -8,12 +8,20 @@ const businessConsts = require('./business/constants.js');
 const
   HTMLWebpackPlugin = require('html-webpack-plugin'),
   HTMLWebpackMountpointPlugin = require('html-webpack-mountpoint-plugin'),
-  ExtractTextPlugin = require('extract-text-webpack-plugin');
+  ExtractTextPlugin = require('extract-text-webpack-plugin'),
+  UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 const extractSass = new ExtractTextPlugin({
-  filename: '[name].[contenthash].css',
-  disable: node_env !== 'production'
+  filename: '[name].css',
+  disable: false //node_env !== 'production'
 });
+
+const META = [
+  {name: "viewport", content: "width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"},
+];
+const ICONS = [
+  'icons/favicon-32x32.png', 'icons/favicon-16x16.png', 'icons/favicon-194x194.png',
+];
 
 const BASE = {
   module: {
@@ -61,7 +69,7 @@ const BASE = {
     extractSass,
     new webpack.DefinePlugin(
       Object.assign(businessConsts, {IS_PROD: node_env === 'production'})
-    ),
+    )
   ],
   resolve: {
     modules: [ 'node_modules', join(__dirname, 'src') ],
@@ -94,9 +102,8 @@ const COMMON = {
     new HTMLWebpackPlugin({
       title: 'MoveOn.org Application',
       filename: 'index.html',
-      meta: [
-        {name: "viewport", content: "width=device-width, initial-scale=1"}
-      ]
+      meta: META,
+      icons: ICONS,
     }),
     new HTMLWebpackMountpointPlugin({
       tagName: 'section',
@@ -120,7 +127,7 @@ const DEV = {
 };
 
 
-const VIEW = function({filename, viewargs}) {
+const VIEW = function({filename, viewargs, title}) {
   /**
     --env variables:
     - .filename - path of the view relative to the `src` dir.
@@ -133,18 +140,17 @@ const VIEW = function({filename, viewargs}) {
       filename: '[name].bundle.js',
       path: join(__dirname, 'public')
     },
-    devtool: 'cheap-module-source-map',
+    devtool: node_env === 'production'? false : 'cheap-module-source-map',
     plugins: [
       new webpack.DefinePlugin({
         TESTVIEW: JSON.stringify(filename),
         VIEWARGS: viewargs ? JSON.parse(JSON.stringify(viewargs)) : null,
       }),
       new HTMLWebpackPlugin({
-        title: 'ViewTEST',
+        title: title || 'ViewTEST',
         filename: 'index.html',
-        meta: [
-          {name: 'viewport', content: 'width=device-width, initial-scale=1'}
-        ]
+        icons: ICONS,
+        meta: META,
       }),
       new HTMLWebpackMountpointPlugin({
         mountPoints: [ 'app-mount' ],
@@ -154,9 +160,20 @@ const VIEW = function({filename, viewargs}) {
   };
 };
 
+const PROD = {
+  plugins: [
+    new UglifyJSPlugin({
+      test: /\.js$/,
+      exclude: [/node_modules/],
+    })
+  ]
+};
+
 module.exports = env => {
   let BUILD = merge({mode: node_env}, BASE);
   if (env && env.type === 'view') {
+    if (node_env === 'production')
+      return merge(BUILD, PROD, VIEW(env));
     return merge(BUILD, DEV, VIEW(env))
   }
   if (env && env.type === 'testing') {
