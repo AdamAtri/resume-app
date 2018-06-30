@@ -43,6 +43,7 @@ module.exports = (function() {
     initialize() {
       this.getRect = () => { return $('header.res-header')[0].getBoundingClientRect(); };
       this.isPhone = () => { return this.getRect().width <= 500; };
+      this.updateNav = this.updateNav.bind(this);
     },
 
     onAttach() {
@@ -62,6 +63,36 @@ module.exports = (function() {
         // .fixed is for non-phone sized devices, so remove it.
         this.ui.nav.removeClass('.fixed');
         // pin or release the phone-sized media-nav based on page offset
+        this.updateNav();
+      }
+      else {
+        let newHeight = Math.max(this.getRect().height - (window.pageYOffset + 10), 150);
+        window.requestAnimationFrame(() => {
+          this.ui.nav.css({height: newHeight+'px'});
+          this.updateNav();
+        });
+      }
+    },
+
+    onResize() {
+      if ( this.isPhone() ) {
+        // phone-based media-nav is always 50px tall
+        this.ui.nav.css({height: '50px'});
+        this.updateNav();
+      }
+      else {
+        let newHeight = Math.max(this.getRect().height - (window.pageYOffset + 10), 150);
+        window.requestAnimationFrame(() => {
+          this.ui.nav.css({height: newHeight+'px'});
+          this.updateNav();
+        });
+      }
+    },
+
+    updateNav() {
+      if (this.isPhone()) {
+        // remove the .fixed and .fill classes if on phone-sized device
+        this.ui.nav.removeClass(['fixed', 'fill']);
         if(window.pageYOffset >= this.getRect().height - 50) {
           this.ui.nav.addClass('fixed-mobile');
         }
@@ -70,24 +101,11 @@ module.exports = (function() {
         }
       }
       else {
-        let newHeight = Math.max(this.getRect().height - (window.pageYOffset + 10), 150);
-        window.requestAnimationFrame(() => { this.ui.nav.css({height: newHeight+'px'}); });
-      }
-    },
-
-    onResize() {
-      if ( this.isPhone() ) {
-        // remove the .fixed class if on phone-sized device
-        this.ui.nav.removeClass('fixed');
-        // phone-based media-nav is always 50px tall
-        this.ui.nav.css({height: '50px'});
-      }
-      else {
+        this.ui.nav.removeClass('fixed-mobile');
         // on devices larger than phones, the media-nav is always fixed
         this.ui.nav.addClass('fixed');
-        this.ui.nav.removeClass('fixed-mobile');
-        let newHeight = Math.max(this.getRect().height - (window.pageYOffset + 10), 150);
-        window.requestAnimationFrame(() => { this.ui.nav.css({height: newHeight+'px'}); });
+        if (this.ui.nav.height() < 160) { this.ui.nav.addClass('fill'); }
+        else { this.ui.nav.removeClass('fill'); }
       }
     }
   });
