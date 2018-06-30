@@ -47,6 +47,7 @@ module.exports = (function() {
       }
       // set up listeners to size the media-nav dynamically
       window.addEventListener('scroll', this.onScroll.bind(this), false);
+      window.addEventListener('touchmove', _.debounce(this.onScroll.bind(this), 5));
       window.addEventListener('resize', this.onResize.bind(this), false);
     },
 
