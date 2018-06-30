@@ -4,8 +4,14 @@
 module.exports = (function() {
 
   const template = (data) => {
+    let bgVid = require('../../../assets/bg_stars_vid.mp4');
     let devName = `${data.devName.first} ${data.devName.middle} ${data.devName.last}`;
     return (`
+      <div class="background-media">
+        <video autoplay muted loop id="bg-vid">
+          <source src=${bgVid} type="video/mp4">
+        </video>
+      </div>
       <div class="dev-name">${devName}</div>
       <div class="head-title">${data.title}</div>
       <div class="head-subtitle">${data.subtitle}</div>

@@ -28,6 +28,25 @@ $assets: '../../../assets/';
 
   & > div { margin: 0; padding: 0;}
 
+  .background-media {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    #bg-vid {
+      width: 100%;
+      height: auto;
+
+      @media screen and (max-width: 680px) and (min-height: 400px) {
+        height: 100%;
+        width: auto;
+      }
+    }
+    @media print {
+      visibility: hidden;
+    }
+  }
+
   .head-title {
     display: inline-block;
     height: 5em;
@@ -84,6 +103,7 @@ $assets: '../../../assets/';
 
   .media-nav {
     $btnBackground: #FFF;
+    $barBackground: #333;
     position: absolute;
     right: 0;
     bottom: 0;
@@ -97,11 +117,14 @@ $assets: '../../../assets/';
       &.fixed {
         position: fixed;
         top: 0;
-        background: #333;
         min-height: 150px;
         max-height: 70vh;
         @media screen and (max-width: 900px) {
           max-height: 50vh;
+        }
+
+        &.fill {
+          background: $barBackground;
         }
       }
     }
@@ -116,7 +139,7 @@ $assets: '../../../assets/';
       &.fixed-mobile {
         position: fixed;
         top: 0;
-        background: #333;
+        background: $barBackground;
       }
     }
 
@@ -126,7 +149,7 @@ $assets: '../../../assets/';
       width: 40px;
       height: 40px;
       margin: .25em;
-      opacity: 0.5;
+      opacity: 0.3;
       &:hover {
         opacity: 1;
       }
