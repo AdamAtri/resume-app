@@ -17,7 +17,7 @@ module.exports = (function() {
     });
 
     return (`
-      <div class="section-title">Edumacation</div>
+      <div class="section-title">Education</div>
       <div class="section-details education-details">${eds.join('\n')}</div>
     `);
   };
