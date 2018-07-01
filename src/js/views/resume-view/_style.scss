@@ -1,6 +1,7 @@
 /* ResumeView style */
 
 @import '../../../css/mixins';
+@import '../../../css/shared';
 $assets: '../../../assets/';
 
 #my-resume {
@@ -12,21 +13,8 @@ $assets: '../../../assets/';
 }
 
 .res-header {
-  position: relative;
-  background: #333;
-  height: 70vh;
-  @media screen and (max-width: 900px) and (min-height: 501px) {
-    height: 50vh;
-  }
-  @media screen and (max-height: 500px) {
-    height: 80vh;
-  }
-  @media print {
-    height: 25vh;
-    color: #444;
-  }
 
-  & > div { margin: 0; padding: 0;}
+  @include baseHeader();
 
   .background-media {
     width: 100%;
