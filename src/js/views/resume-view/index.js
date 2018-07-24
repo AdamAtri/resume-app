@@ -10,6 +10,7 @@ module.exports = (function() {
   const ResumeHeader = require('./header');
   const EmploymentView = require('./employment');
   const EducationView = require('./education');
+  const ContactView = require('./contact');
 
   const ResumeView = Mn.View.extend({
     template: require('./template'),
@@ -27,10 +28,7 @@ module.exports = (function() {
         el: '#res-education',
         replaceElement: true
       },
-      footer: {
-        el: '#res-footer',
-        replaceElement: true
-      },
+      footer: '#res-footer',
     },
 
     onRender() {
@@ -44,6 +42,7 @@ module.exports = (function() {
       }));
       this.showChildView('work', new EmploymentView({employers: data.employment}));
       this.showChildView('ed', new EducationView({education: data.education}));
+      this.showChildView('footer', new ContactView());
     }
 
   });
