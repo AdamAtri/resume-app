@@ -1,7 +1,7 @@
 
 module.exports = (function() {
 
-  const RootView = require('../views/root/index.js');
+  const RootView = require('../views/resume-view/index.js');
 
   const BaseController = Mn.Object.extend({
     initialize() {
@@ -15,7 +15,7 @@ module.exports = (function() {
     },
 
     home() {
-      console.log('home');
+      //console.log('home');
     },
   });
 
