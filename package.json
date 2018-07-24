@@ -12,7 +12,8 @@
     "test": "mocha",
     "wptest": "NODE_ENV=development webpack-dev-server --env.type=testing",
     "wpview": "NODE_ENV=development webpack-dev-server --env.type=view",
-    "wpview:prod": "NODE_ENV=production webpack --env.type=view"
+    "wpview:prod": "NODE_ENV=production webpack --env.type=view",
+    "wp:prod": "NODE_ENV=production webpack"
   },
   "devDependencies": {
     "chai": "^4.1.2",
