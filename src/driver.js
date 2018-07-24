@@ -1,5 +1,4 @@
 require('./css/master.scss');
-require('./js/something');
 
 const Router = require('./js/router/index.js');
 
