@@ -2,6 +2,8 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const { join, resolve } = require('path');
 
+require('babel-polyfill');
+
 const node_env = process.env.NODE_ENV;
 const businessConsts = require('./business/constants.js');
 
@@ -30,7 +32,7 @@ const BASE = {
       { // lint javascript
         test: /\.js$/,
         enforce: 'pre',
-        use: [ 'eslint-loader' ],
+        use: [ 'eslint-loader', {loader: 'babel-loader', options: {presets: ['@babel/preset-env']}} ],
         exclude: [ 'node_modules' ]
       },
       { // load files
@@ -93,6 +95,7 @@ const TEST = {
 
 const COMMON = {
   entry: {
+    polyfill: "babel-polyfill",
     app: join(__dirname, 'src', 'driver.js')
   },
   output: {
@@ -101,7 +104,7 @@ const COMMON = {
   },
   plugins: [
     new HTMLWebpackPlugin({
-      title: 'MoveOn.org Application',
+      title: 'Atricoware - Resume',
       filename: 'index.html',
       meta: META,
       icons: ICONS,
@@ -117,7 +120,7 @@ const DEV = {
   devServer: {
     contentBase: join(__dirname, 'public'),
     compress: true,
-    host: '192.168.1.68',
+    host: '192.168.56.1', //'192.168.1.70',
     port: 9995,
     headers: {
       'X-Powered-By': 'caffeine and sarcasm'
